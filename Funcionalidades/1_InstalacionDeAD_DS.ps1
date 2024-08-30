@@ -30,7 +30,6 @@ function instalarActiveDirectoryDS {
         $passwordAdminAD_DS = Read-Host -Prompt "Escribe la contraseña del Administrador de dominio" -AsSecureString
 
         Import-Module ADDSDeployment
-
         Install-ADDSForest `
             -CreateDnsDelegation:$false `
             -DatabasePath "C:\Windows\NTDS" `
