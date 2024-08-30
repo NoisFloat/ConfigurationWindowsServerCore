@@ -23,22 +23,28 @@ function instalarActiveDirectoryDS {
         # Configurar el servidor como controlador de dominio
         $domainName = Read-Host -Prompt "Escribe el nombre de dominio (ejemplo: semita.sv)"
         $domainNetbiosName = Read-Host -Prompt "Escribe el NetBIOS del dominio (ejemplo: SEMITA)"
-        $forestMode = "Win2016"  # Ajusta según la versión de Windows Server
-        $domainMode = "Win2016"  # Ajusta según la versión de Windows Server
+        $forestMode = "WinThreshold"  # Ajusta según la versión de Windows Server
+        $domainMode = "WinThreshold"  # Ajusta según la versión de Windows Server
         $dnsInstall = $true
-        $reboot = $true
-        $passwordAdminAD_DS = Read-Host -Prompt "Escribe la contraseña del Administrador de dominio"
+        $reboot = $false
+        $passwordAdminAD_DS = Read-Host -Prompt "Escribe la contraseña del Administrador de dominio" -AsSecureString
+
+        Import-Module ADDSDeployment
 
         Install-ADDSForest `
+            -CreateDnsDelegation:$false `
+            -DatabasePath "C:\Windows\NTDS" `
             -DomainName $domainName `
             -DomainNetbiosName $domainNetbiosName `
             -ForestMode $forestMode `
             -DomainMode $domainMode `
-            -InstallDns $dnsInstall `
-            -CreateDnsDelegation:$false `
+            -InstallDns:$dnsInstall `
             -NoRebootOnCompletion:$reboot `
-            -Force `
-            -SafeModeAdministratorPassword (ConvertTo-SecureString $passwordAdminAD_DS -AsPlainText -Force)
+            -LogPath "C:\Windows\NTDS" `
+            -SysvolPath "C:\Windows\SYSVOL" `
+            -Force:$true `
+            -SafeModeAdministratorPassword $passwordAdminAD_DS
+
     } else {
         Write-Host "Active Directory Domain Services ya está instalado."
         # En caso de que esté instalado, solo se sale de la función
