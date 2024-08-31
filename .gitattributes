@@ -1,0 +1,9 @@
+# Configura la codificación de texto para todos los archivos de texto en UTF-8
+* text working-tree-encoding=UTF-8
+
+# Asegura que los archivos de texto mantengan los finales de línea adecuados para tu sistema
+# Cambia los finales de línea de LF a CRLF solo en sistemas Windows
+*.ps1
+*.text
+*.txt
+*.bat
