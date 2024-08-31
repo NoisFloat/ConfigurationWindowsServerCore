@@ -11,7 +11,7 @@ function menuPrincipal {
         Write-Host '*                                                         *'
         Write-Host '*      [1] Instalación de AD-DS                           *'
         Write-Host '*      [2] Creacion de Unidades Organizativas             *'
-        Write-Host '*      [3] No Implementado                                *'
+        Write-Host '*      [3] Creación de Usuarios para el Dominio: horchata.sv *'
         Write-Host '*      [4] No Implementado                                *'
         Write-Host '*      [5] No Implementado                                *'
         Write-Host '*      [6] No Implementado                                *'
@@ -33,8 +33,16 @@ function menuPrincipal {
                 Read-Host -Prompt "Presiona Enter para continuar..."
                 break
             }
-            "0" {
-                Write-Output "Saliendo del menú..."
+            "2" {
+                Write-Output "Seleccionaste: Creación de Unidades Organizativas (OU)"
+                .\Funcionalidades\2_CreacionDeUnidades.ps1
+                Read-Host -Prompt "Presiona Enter para continuar..."
+                break
+            }
+            "3" {
+                Write-Output "Seleccionaste: Creación de Usuarios para el Dominio: horchata.sv"
+                .\Funcionalidades\3_CreacionDeUsuariosEnHorchata.ps1
+                Read-Host -Prompt "Presiona Enter para continuar..."
                 break
             }
             default {

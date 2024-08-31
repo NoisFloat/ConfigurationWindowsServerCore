@@ -8,30 +8,30 @@ function instalacionOU {
     if ($continue -eq "Si") {
         $domainController = Read-Host "Escribe el nombre del Controlador de Dominio (Ejemplo: horchata.sv): "
         $arregloDomainController = $domainController -split '\.'
-        New-ADOrganizationalUnit -Name "Gerencia General" -Path "DC=$arregloDomainController[0],DC=$arregloDomainController[1]" -Description "Unidad Organizativa Padre"
+        
+        $domainPath = "DC=$($arregloDomainController[0]),DC=$($arregloDomainController[1])"
+        
+        New-ADOrganizationalUnit -Name "Gerencia General" -Path $domainPath -Description "Unidad Organizativa Padre"
         Start-Sleep -Seconds 1
-        New-ADOrganizationalUnit -Name "Departamento Comercial" -Path "OU=Gerencia General,DC=$arregloDomainController[0],DC=$arregloDomainController[1]" -Description "Unidad Organizativa de Nivel 2"
+        
+        New-ADOrganizationalUnit -Name "Departamento Comercial" -Path "OU=Gerencia General,$domainPath" -Description "Unidad Organizativa de Nivel 2"
         Start-Sleep -Seconds 1
-        New-ADOrganizationalUnit -Name "Compras" -Path "OU=Departamento Comercial,OU=Gerencia General,DC=$arregloDomainController[0],DC=$arregloDomainController[1]" -Description "Unidad Organizativa de Nivel 3"
+        
+        New-ADOrganizationalUnit -Name "Compras" -Path "OU=Departamento Comercial,OU=Gerencia General,$domainPath" -Description "Unidad Organizativa de Nivel 3"
         Start-Sleep -Seconds 1
-        New-ADOrganizationalUnit -Name "Ventas" -Path "OU=Departamento Comercial,OU=Gerencia General,DC=$arregloDomainController[0],DC=$arregloDomainController[1]" -Description "Unidad Organizativa de Nivel 3"
+        
+        New-ADOrganizationalUnit -Name "Ventas" -Path "OU=Departamento Comercial,OU=Gerencia General,$domainPath" -Description "Unidad Organizativa de Nivel 3"
         Start-Sleep -Seconds 1
-        New-ADOrganizationalUnit -Name "Diseño" -Path "OU=Departamento Comercial,OU=Gerencia General,DC=$arregloDomainController[0],DC=$arregloDomainController[1]" -Description "Unidad Organizativa de Nivel 3"
+        
+        New-ADOrganizationalUnit -Name "Diseño" -Path "OU=Departamento Comercial,OU=Gerencia General,$domainPath" -Description "Unidad Organizativa de Nivel 3"
         Start-Sleep -Seconds 1
-        Read-Host -Prompt "Presiona Enter Para ir al menu..."
-    
+        
         Write-Host "La creación de las Unidades Organizativas se ha completado con éxito."
-        ../mainScript.ps1 
-    }else{
-        Write-Host "Presiona Enter Para ir al menu..."
-        ../mainScript.ps1
+    } else {
+        Write-Host "Operación cancelada. Presiona Enter Para ir al menú..."
     }
-
-   
-
+    Read-Host -Prompt "Presiona Enter Para ir al menu..."
+    ../mainScript.ps1
 }
 
 instalacionOU
-
-
-
