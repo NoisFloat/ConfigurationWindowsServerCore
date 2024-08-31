@@ -57,7 +57,7 @@ function CreacionDeUsuariosCatedra {
             SamAccountName = "yanira.berrios"
             UserPrincipalName = "yanira.berrios@horchata.sv"
             Path = "OU=Diseño,OU=Departamento Comercial,OU=Gerencia General,DC=horchata,DC=sv"
-            Password = "Corazonbello"
+            Password = "Corazonbell0#0"
             EmailAddress = "yanira.berrios@horchata.sv"
             Description = "Usuario creado para Yanira Berrios en el departamento de compras."
         },
