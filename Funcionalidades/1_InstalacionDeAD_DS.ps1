@@ -21,8 +21,8 @@ function instalarActiveDirectoryDS {
         Read-Host -Prompt "Presione Enter para continuar con la configuración del dominio"
 
         # Configurar el servidor como controlador de dominio
-        $domainName = Read-Host -Prompt "Escribe el nombre de dominio (ejemplo: semita.sv)"
-        $domainNetbiosName = Read-Host -Prompt "Escribe el NetBIOS del dominio (ejemplo: SEMITA)"
+        $domainName = Read-Host -Prompt "Escribe el nombre de dominio (ejemplo: horchata.sv)"
+        $domainNetbiosName = Read-Host -Prompt "Escribe el NetBIOS del dominio (ejemplo: HORCHATA)"
         $forestMode = "WinThreshold"  # Ajusta según la versión de Windows Server
         $domainMode = "WinThreshold"  # Ajusta según la versión de Windows Server
         $dnsInstall = $true
