@@ -10,7 +10,7 @@ function menuPrincipal {
         Write-Host '*                 Elige una opción del menú:               *'
         Write-Host '*                                                         *'
         Write-Host '*      [1] Instalación de AD-DS                           *'
-        Write-Host '*      [2] No Implementado                                *'
+        Write-Host '*      [2] Creacion de Unidades Organizativas             *'
         Write-Host '*      [3] No Implementado                                *'
         Write-Host '*      [4] No Implementado                                *'
         Write-Host '*      [5] No Implementado                                *'
