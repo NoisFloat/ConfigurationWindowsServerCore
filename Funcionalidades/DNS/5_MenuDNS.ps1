@@ -31,9 +31,9 @@ function Add-DnsRecordA {
 
     # Calcular la zona inversa y la dirección PTR
     $octetos = $IPv4Address.Split('.')
-    $reverseOctets = [string]::Join('.', [array]::Reverse($octetos)) # Invertir el orden de los octetos
+    $reverseOctets = "$($octetos[3]).$($octetos[2]).$($octetos[1]).$($octetos[0])" # Invertir el orden de los octetos
     $reverseZone = "$reverseOctets.in-addr.arpa"
-    $ptrRecordName = $octetos[3]
+    $ptrRecordName = $reverseOctets
 
     # Comprobar si la zona inversa ya existe
     $reverseZoneExists = Get-DnsServerZone -Name $reverseZone -ErrorAction SilentlyContinue
