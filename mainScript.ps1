@@ -12,7 +12,7 @@ function menuPrincipal {
         Write-Host '*      [1] Instalación de AD-DS                           *'
         Write-Host '*      [2] Creación de Unidades Organizativas             *'
         Write-Host '*      [3] Creación de Usuarios para el Dominio: horchata.sv *'
-        Write-Host '*      [4] No Implementado                                *'
+        Write-Host '*      [4] Instalacion de Rol DHCP                                *'
         Write-Host '*      [5] No Implementado                                *'
         Write-Host '*      [6] No Implementado                                *'
         Write-Host '*      [7] No Implementado                                *'
@@ -40,6 +40,11 @@ function menuPrincipal {
             "3" {
                 Write-Output "Seleccionaste: Creación de Usuarios para el Dominio: horchata.sv"
                 .\Funcionalidades\3_CreacionDeUsuariosEnHorchata.ps1
+                Read-Host -Prompt "Presiona Enter para continuar..."
+            }
+            "4"{
+                Write-Output "Seleccionaste: Instalacion de Rol DHCP"
+                .\Funcionalidades\4_InstalacionDeDHCP.ps1
                 Read-Host -Prompt "Presiona Enter para continuar..."
             }
             "0" {
