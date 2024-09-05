@@ -5,7 +5,7 @@ function Test-isInstalledDNSServer{
 function instalacionDNS{
     #Verificar la instalacion de DHCP Server
     if(-not (Test-isInstalledDNSServer)){
-        Install-WindowsFeature -Name DNS -IncludeManagementTools -IncludeAllSubFeature       
+        Install-WindowsFeature -Name DNS -IncludeManagementTools -IncludeAllSubFeature -Confirm:$false 
             Write-Host "Esperando a que la instalación de DNS se complete..."
             Start-Sleep -Seconds 5
         }else{

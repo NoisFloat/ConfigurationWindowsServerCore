@@ -5,7 +5,7 @@ function Test-isInstalledDHCPServer{
 function instalarDHCPServer{
     #Verificar la instalacion de DHCP Server
     if(-not (Test-isInstalledDHCPServer)){
-        Install-WindowsFeature -Name DHCP -IncludeManagementTools -IncludeAllSubFeature        # Bucle while para esperar hasta que la instalación se complete
+        Install-WindowsFeature -Name DHCP -IncludeManagementTools -IncludeAllSubFeature -Confirm:$false
         while (-not (Test-isInstalledDHCPServer)) {
             Write-Host "Esperando a que la instalación de AD-Domain-Services se complete..."
             Start-Sleep -Seconds 5

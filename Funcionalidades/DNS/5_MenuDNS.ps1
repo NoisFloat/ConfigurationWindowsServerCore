@@ -17,9 +17,37 @@ function Add-DnsRecordA {
         [string]$RecordName,
         [string]$IPv4Address
     )
+
+    # Validar el formato de la dirección IPv4
+    if (-not ([System.Net.IPAddress]::TryParse($IPv4Address, [ref]$null))) {
+        Write-Host "La dirección IP proporcionada no es válida." -ForegroundColor Red
+        return
+    }
+
     Write-Host "Agregando un registro A para $RecordName en la zona $ZoneName con la dirección $IPv4Address..."
+    
+    # Crear el registro A en la zona directa
     Add-DnsServerResourceRecordA -ZoneName $ZoneName -Name $RecordName -IPv4Address $IPv4Address
+
+    # Calcular la zona inversa y la dirección PTR
+    $octetos = $IPv4Address.Split('.')
+    $reverseOctets = [string]::Join('.', $octetos[0..2])
+    $reverseZone = "$reverseOctets.in-addr.arpa"
+    $ptrRecordName = $octetos[3]
+
+    # Comprobar si la zona inversa ya existe
+    $reverseZoneExists = Get-DnsServerZone -Name $reverseZone -ErrorAction SilentlyContinue
+    if (-not $reverseZoneExists) {
+        Write-Host "La zona inversa $reverseZone no existe. Creándola..."
+        Add-DnsServerPrimaryZone -Name $reverseZone -ZoneFile "$reverseZone.dns" -DynamicUpdate None
+    }
+
+    # Crear el registro PTR en la zona inversa
+    Write-Host "Agregando el registro PTR para $RecordName ($IPv4Address) en la zona inversa $reverseZone..."
+    Add-DnsServerResourceRecordPtr -ZoneName $reverseZone -Name $ptrRecordName -PtrDomainName "$RecordName.$ZoneName"
 }
+
+
 
 function Add-DnsRecordAAAA {
     param (
@@ -38,7 +66,7 @@ function Create-PrimaryZone {
     $zone = Get-DnsServerZone -Name $ZoneName -ErrorAction SilentlyContinue
     if (-not $zone) {
         Write-Host "Creando la zona primaria $ZoneName..."
-        Add-DnsServerPrimaryZone -Name $ZoneName -ZoneFile "$ZoneName.dns" -DynamicUpdate "Secure"
+        Add-DnsServerPrimaryZone -Name $ZoneName -ZoneFile "$ZoneName.dns" -DynamicUpdate None
     } else {
         Write-Host "La zona primaria $ZoneName ya existe."
     }
@@ -126,5 +154,5 @@ do {
     $opcion = Read-Host "Selecciona una opción"
     Ejecutar-Opcion -opcion $opcion
     Write-Host "`nPresiona Enter para continuar..."
-    [void] [System.Console]::ReadKey()  # Espera a que el usuario presione una tecla
+    Read-Host -Prompt ""
 } while ($true)
