@@ -1,5 +1,8 @@
 function menuAD_DS {
+    Write-Host "**********************"
     Get-Location
+    Write-Host "**********************"
+
     $menu = ''
     while ($menu -ne '0') {
         Clear-Host
@@ -24,24 +27,24 @@ function menuAD_DS {
         switch ($menu) {
             "1" {
                 Write-Output "Seleccionaste: Instalación de AD-DS"
-                .\1_InstalacionDeAD_DS.ps1
+                .\Funcionalidades\AD_DS\1_InstalacionDeAD_DS.ps1
                 Read-Host -Prompt "Presiona Enter para continuar..."
             }
             "2" {
                 Write-Output "Seleccionaste: Creación de Unidades Organizativas (OU)"
-                .\2_CreacionDeUnidadesOrg.ps1
+                .\Funcionalidades\AD_DS\2_CreacionDeUnidadesOrg.ps1
                 Read-Host -Prompt "Presiona Enter para continuar..."
             }
             "3" {
                 Write-Output "Seleccionaste: Creación de Usuarios para el Dominio: horchata.sv"
-                .\3_CreacionDeUsuariosEnHorchata.ps1
+                .\Funcionalidades\AD_DS\3_CreacionDeUsuariosEnHorchata.ps1
                 Read-Host -Prompt "Presiona Enter para continuar..."
             }
             
             "0" {
                 Write-Output "Saliendo..."
                 Start-Sleep -Seconds 3
-                ..\..\mainScript.ps1
+                .\mainScript.ps1
                 break
             }
             default {
