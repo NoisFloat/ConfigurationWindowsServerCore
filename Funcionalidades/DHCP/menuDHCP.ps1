@@ -25,13 +25,13 @@ function menuDHCP {
 
         switch ($menu) {
             "1" {
-                Write-Output "Seleccionaste: Instalación de AD-DS"
+                Write-Output "Seleccionaste: Instalación DHCP"
                 .\Funcionalidades\DHCP\1_InstalacionDeDHCP.ps1
                 Read-Host -Prompt "Presiona Enter para continuar..."
             }
             "2" {
-                Write-Output "Seleccionaste: Creación de Unidades Organizativas (OU)"
-                .\Funcionalidades\DHCP\2_AsignacionDeServidorDNS.ps1
+                Write-Output "Seleccionaste:  Asignacion de Servidor DNS Y POOL DHCP (Estatico IPV4-IPV6)"
+                .\Funcionalidades\DHCP\2_AsignacionDeServidorDHCP.ps1
                 Read-Host -Prompt "Presiona Enter para continuar..."
             }
             
