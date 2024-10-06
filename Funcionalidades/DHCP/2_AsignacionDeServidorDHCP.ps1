@@ -30,6 +30,12 @@ function confDHCP {
     Add-DhcpServerv6ExclusionRange -Prefix 2001:DB8:DEA:B:: -StartRange 2001:DB8:DEA:B::201 -EndRange 2001:DB8:DEA:B::FFFF  # Asumiendo que FFFF es el final del rango
     Set-DhcpServerv6OptionValue -DnsServer 2001:DB8:DEA:B::2
 
+    Write-Host "Configuracion Finalizada***"
+    Write-Host "Regresando al Menu Principal ..."
+    Start-Sleep -Seconds 2
+    .\mainScript.ps1
+
+
 }
 
 # Llamada a la función
