@@ -1,4 +1,5 @@
 function menuAD_DS {
+    Get-Location
     $menu = ''
     while ($menu -ne '0') {
         Clear-Host
