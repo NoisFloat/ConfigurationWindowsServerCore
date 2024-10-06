@@ -34,7 +34,7 @@ function menuPrincipal {
             }
             "2" {
                 Write-Output "Seleccionaste: Creación de Unidades Organizativas (OU)"
-                .\Funcionalidades\AD_DS\menuDHCP.ps1
+                .\Funcionalidades\DHCP\menuDHCP.ps1
                 Read-Host -Prompt "Presiona Enter para continuar..."
             }
             "3" {
