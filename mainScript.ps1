@@ -29,7 +29,7 @@ function menuPrincipal {
         switch ($menu) {
             "1" {
                 Write-Output "Seleccionaste: Instalación de AD-DS"
-                .\Funcionalidades\1_InstalacionDeAD_DS.ps1
+                .\Funcionalidades\AD-DS\menuAD_DS.ps1
                 Read-Host -Prompt "Presiona Enter para continuar..."
             }
             "2" {
