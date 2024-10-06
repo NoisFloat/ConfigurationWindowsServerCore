@@ -1,0 +1,1 @@
+El Funcionamiento es para horchata.sv, pero puedes modificar hacia tus necesidades, ademas varias configuraciones se hacen solamente para automatizar
