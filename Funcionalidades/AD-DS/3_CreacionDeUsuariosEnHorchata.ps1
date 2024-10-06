@@ -94,7 +94,7 @@ function CreacionDeUsuariosCatedra {
 
     Read-Host -Prompt "Tus Usuarios han sido creados, regresando al menu. Presiona Enter..."
     Start-Sleep -Seconds 2
-    ../mainScript.ps1
+    ./menuAD_DS.ps1
 }
 
 # Llamar a la función

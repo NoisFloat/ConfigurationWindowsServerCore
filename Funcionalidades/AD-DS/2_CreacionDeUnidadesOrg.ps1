@@ -31,7 +31,7 @@ function instalacionOU {
         Write-Host "Operación cancelada. Presiona Enter Para ir al menú..."
     }
     Read-Host -Prompt "Presiona Enter Para ir al menu..."
-    ../mainScript.ps1
+    ./menuAD_DS.ps1
 }
 
 instalacionOU
