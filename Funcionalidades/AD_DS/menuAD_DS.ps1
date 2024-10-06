@@ -41,7 +41,6 @@ function menuAD_DS {
                 Write-Output "Saliendo..."
                 Start-Sleep -Seconds 3
                 ..\..\mainScript.ps1
-                .
                 break
             }
             default {
