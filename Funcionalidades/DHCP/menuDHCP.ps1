@@ -14,8 +14,7 @@ function menuDHCP {
         Write-Host '*                 Elige una opción del menú:               *'
         Write-Host '*                                                         *'
         Write-Host '*      [1] Instalación DHCP                               *'
-        Write-Host '*      [2] Asignacion de Servidor DNS (Estatico IPV4-IPV6)  *'
-        Write-Host '*      [3] Asignacion de POOL DHCP Asignable  (IPV4-IPV6)   *' 
+        Write-Host '*      [2] Asignacion de Servidor DNS Y POOL DHCP (Estatico IPV4-IPV6)  *'
         Write-Host '*                                                         *'
         Write-Host '*      [0] Ir al menu Principal                            *'
         Write-Host '************************************************************'
@@ -33,11 +32,6 @@ function menuDHCP {
             "2" {
                 Write-Output "Seleccionaste: Creación de Unidades Organizativas (OU)"
                 .\Funcionalidades\DHCP\2_AsignacionDeServidorDNS.ps1
-                Read-Host -Prompt "Presiona Enter para continuar..."
-            }
-            "3" {
-                Write-Output "Seleccionaste: Creación de Usuarios para el Dominio: horchata.sv"
-                .\Funcionalidades\DHCP\3_AsignacionDePOOL_DHCP.ps1
                 Read-Host -Prompt "Presiona Enter para continuar..."
             }
             

@@ -10,7 +10,7 @@ function menuPrincipal {
         Write-Host '*                 Elige una opción del menú:               *'
         Write-Host '*                                                         *'
         Write-Host '*      [1] Modulo de AD-DS                                *'
-        Write-Host '*      [2] No Implementado                                *'
+        Write-Host '*      [2] Modulo de DHCP                                *'
         Write-Host '*      [3] No Implementado                                *'
         Write-Host '*      [4] No Implementado                                *'
         Write-Host '*      [5] No Implementado                                *'
@@ -34,7 +34,7 @@ function menuPrincipal {
             }
             "2" {
                 Write-Output "Seleccionaste: Creación de Unidades Organizativas (OU)"
-                .\Funcionalidades\2_CreacionDeUnidadesOrg.ps1
+                .\Funcionalidades\AD_DS\menuDHCP.ps1
                 Read-Host -Prompt "Presiona Enter para continuar..."
             }
             "3" {
