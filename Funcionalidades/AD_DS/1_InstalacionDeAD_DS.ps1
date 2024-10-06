@@ -48,7 +48,7 @@ function instalarActiveDirectoryDS {
         Write-Host "Active Directory Domain Services ya está instalado."
         # En caso de que esté instalado, solo se sale de la función
         Read-Host -Prompt "Presione Enter para salir"
-        ./menuAD_DS.ps1
+        .\Funcionalidades\AD_DS\menuAD_DS.ps1
         return
     }
 }
