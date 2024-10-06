@@ -1,0 +1,15 @@
+1. Permitir la ejecución de scripts en la sesión actual 
+de PowerShell
+
+Para permitir la ejecución de scripts solo en la sesión 
+actual de PowerShell, puedes establecer la política de 
+ejecución a nivel de la sesión (Process) con el siguiente 
+comando:
+
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+
+
+/*Esto permite la ejecución de scripts firmados en la sesión
+ actual sin cambiar la política de ejecución a nivel del
+  sistema. Este cambio es temporal y se restablecerá cuando
+   cierres la sesión de PowerShell.*/
