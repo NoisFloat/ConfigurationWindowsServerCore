@@ -24,10 +24,14 @@ function confDHCP {
   
     Add-DhcpServerv6Scope -Prefix 2001:DB8:DEA:B:: -Name "IPV6" -State Active
     # Excluir desde el inicio hasta 2001:DB8:DEA:B::99
-    Add-DhcpServerv6ExclusionRange -Prefix 2001:DB8:DEA:B:: -StartRange 2001:DB8:DEA:B:: -EndRange 2001:DB8:DEA:B::99
+    Add-DhcpServerv6ExclusionRange -Prefix 2001:DB8:DEA:B:: -StartRange 2001:DB8:DEA:B::1 -EndRange 2001:DB8:DEA:B::99
 
     # Excluir desde 2001:DB8:DEA:B::201 hasta el final del rango
-    Add-DhcpServerv6ExclusionRange -Prefix 2001:DB8:DEA:B:: -StartRange 2001:DB8:DEA:B::201 -EndRange 2001:DB8:DEA:B::FFFF  # Asumiendo que FFFF es el final del rango
+    Add-DhcpServerv6ExclusionRange -Prefix 2001:DB8:DEA:B:: -StartRange 2001:DB8:DEA:B::201 -EndRange 2001:DB8:DEA:B:FFFF:FFFF:FFFF:FFFF # Fin del rango
+
+    # Crear el rango asignable entre 2001:DB8:DEA:B:100 y 2001:DB8:DEA:B:200
+    Add-DhcpServerv6Reservation -ScopeId 2001:DB8:DEA:B:: -IPAddress 2001:DB8:DEA:B:100 -ClientId "00-15-5D-00-02-12" -Description "Reserva de prueba"
+
     Set-DhcpServerv6OptionValue -DnsServer 2001:DB8:DEA:B::2
 
     Write-Host "Configuracion Finalizada***"
