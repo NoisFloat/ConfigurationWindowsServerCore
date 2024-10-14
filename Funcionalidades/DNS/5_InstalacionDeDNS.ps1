@@ -13,7 +13,7 @@ function instalacionDNS{
         Write-Host "El Servidor DNS ya está instalado."
         # En caso de que esté instalado, solo se sale de la función
         Read-Host -Prompt "Presione Enter para salir"
-        .\mainScript.ps1
+        .\Funcionalidades\DNS\menuDNS.ps1
         return
     }
 }
