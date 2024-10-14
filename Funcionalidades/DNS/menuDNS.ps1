@@ -15,7 +15,8 @@ function menuDNS {
         Write-Host '*                                                         *'
         Write-Host '*      [1] Instalación de DNS                             *'
         Write-Host '*      [2] Creacion de punteros IPV4(Incluye Inverso)     *'
-        Write-Host '*      [3] Creacion de punteros IPV6(Incluye Inverso)     *'                          *'                               *'
+        Write-Host '*      [3] Creacion de punteros IPV6(Incluye Inverso)     *'
+        Write-Host '*      [3] Asignacion de Forwarders (IPV4 - IPV6)         *'                         
         Write-Host '*                                                         *'
         Write-Host '*      [0] Ir al menu Principal                           *'
         Write-Host '************************************************************'
@@ -27,17 +28,22 @@ function menuDNS {
         switch ($menu) {
             "1" {
                 Write-Output "Seleccionaste: Instalación de DNS"
-                .\Funcionalidades\DNS\5_InstalacionDeDNS.ps1
+                .\Funcionalidades\DNS\1_InstalacionDeDNS.ps1
                 Read-Host -Prompt "Presiona Enter para continuar..."
             }
             "2" {
                 Write-Output "Seleccionaste: Creacion de punteros IPV4(Incluye Inverso)"
-                .\Funcionalidades\DNS\5_CreacionDePunterosIPV4.ps1
+                .\Funcionalidades\DNS\2_CreacionDePunterosIPV4.ps1
                 Read-Host -Prompt "Presiona Enter para continuar..."
             }
             "3" {
                 Write-Output "Seleccionaste: Creacion de punteros IPV6(Incluye Inverso)"
-                .\Funcionalidades\DNS\5_CreacionDePunterosIPV6.ps1
+                .\Funcionalidades\DNS\3_CreacionDePunterosIPV6.ps1
+                Read-Host -Prompt "Presiona Enter para continuar..."
+            }
+            "4" {
+                Write-Output "Seleccionaste: Creacion de punteros IPV6(Incluye Inverso)"
+                .\Funcionalidades\DNS\4_AsignacionDeForwarders.ps1
                 Read-Host -Prompt "Presiona Enter para continuar..."
             }
             
