@@ -3,6 +3,7 @@ function Test-isInstalledDNSServer{
     return $caracteristica.Installed
 }
 function instalacionDNS{
+    Clear-Host
     #Verificar la instalacion de DHCP Server
     if(-not (Test-isInstalledDNSServer)){
         Install-WindowsFeature -Name DNS -IncludeManagementTools -IncludeAllSubFeature -Confirm:$false 
@@ -12,7 +13,7 @@ function instalacionDNS{
         Write-Host "El Servidor DNS ya está instalado."
         # En caso de que esté instalado, solo se sale de la función
         Read-Host -Prompt "Presione Enter para salir"
-        ../mainScript.ps1
+        .\mainScript.ps1
         return
     }
 }
