@@ -10,8 +10,8 @@ function menuPrincipal {
         Write-Host '*                 Elige una opción del menú:               *'
         Write-Host '*                                                         *'
         Write-Host '*      [1] Modulo de AD-DS                                *'
-        Write-Host '*      [2] Modulo de DHCP                                *'
-        Write-Host '*      [3] No Implementado                                *'
+        Write-Host '*      [2] Modulo de DHCP                                 *'
+        Write-Host '*      [3] Modulo de DNS                                  *'
         Write-Host '*      [4] No Implementado                                *'
         Write-Host '*      [5] No Implementado                                *'
         Write-Host '*      [6] No Implementado                                *'
@@ -29,17 +29,17 @@ function menuPrincipal {
         switch ($menu) {
             "1" {
                 Write-Output "Seleccionaste: Instalación de AD-DS"
-                .\Funcionalidades\AD_DS\menuAD_DS.ps1
+                .\Funcionalidades\DNS\menuAD_DS.ps1
                 Read-Host -Prompt "Presiona Enter para continuar..."
             }
             "2" {
                 Write-Output "Seleccionaste: Creación de Unidades Organizativas (OU)"
-                .\Funcionalidades\DHCP\menuDHCP.ps1
+                .\Funcionalidades\DNS\menuDHCP.ps1
                 Read-Host -Prompt "Presiona Enter para continuar..."
             }
             "3" {
                 Write-Output "Seleccionaste: Creación de Usuarios para el Dominio: horchata.sv"
-                .\Funcionalidades\3_CreacionDeUsuariosEnHorchata.ps1
+                .\Funcionalidades\DNS\menuDNS.ps1
                 Read-Host -Prompt "Presiona Enter para continuar..."
             }
             "4"{
