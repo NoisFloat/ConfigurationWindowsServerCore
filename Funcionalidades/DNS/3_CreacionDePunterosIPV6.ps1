@@ -19,4 +19,4 @@ Add-DnsServerResourceRecordAAAA -Name cliente -ZoneName horchata.sv -AllowUpdate
 Start-Sleep -Seconds 3
 .\Funcionalidades\DNS\menuDNS.ps1
 }
-creacionPunterosIP4
+creacionPunterosIP6
