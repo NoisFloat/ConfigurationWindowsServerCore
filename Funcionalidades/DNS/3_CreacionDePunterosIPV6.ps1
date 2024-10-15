@@ -3,7 +3,8 @@ function creacionPunterosIP6{
 Clear-Host
 Write-Output "Configurando punteros IPV6"
 #Zonas de resolucion
-Add-DnsServerPrimaryZone -NetworkID 2001:DB8:DEA:B::0/64 -ZoneFile 0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.b.0.0.0.a.e.d.0.8.b.d.0.1.0.0.2.ip6.arpa.dns
+Add-DnsServerPrimaryZone -NetworkID 2001:DB8:DEA:B::/64 -ZoneFile "0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.b.0.0.0.a.e.d.0.8.b.d.0.1.0.0.2.ip6.arpa"
+
 #Hosts
 Add-DnsServerResourceRecordAAAA -Name dns -ZoneName horchata.sv -AllowUpdateAny -IPv6Address 2001:db8:dea:b:0:0:0:2 -CreatePtr
 Add-DnsServerResourceRecordAAAA -Name www -ZoneName horchata.sv -AllowUpdateAny -IPv6Address 2001:db8:dea:b:0:0:0:2 -CreatePtr
