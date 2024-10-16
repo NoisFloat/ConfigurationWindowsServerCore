@@ -12,8 +12,8 @@ function menuPrincipal {
         Write-Host '*      [1] Modulo de AD-DS                                *'
         Write-Host '*      [2] Modulo de DHCP                                 *'
         Write-Host '*      [3] Modulo de DNS                                  *'
-        Write-Host '*      [4] No Implementado                                *'
-        Write-Host '*      [5] No Implementado                                *'
+        Write-Host '*      [4] Modulo de IIS                                *'
+        Write-Host '*      [5] Demostraciones Catedra                                *'
         Write-Host '*      [6] No Implementado                                *'
         Write-Host '*      [7] No Implementado                                *'
         Write-Host '*      [8] No Implementado                                *'
@@ -33,18 +33,23 @@ function menuPrincipal {
                 Read-Host -Prompt "Presiona Enter para continuar..."
             }
             "2" {
-                Write-Output "Seleccionaste: Creación de Unidades Organizativas (OU)"
+                Write-Output "Seleccionaste: Modulo de DHCP"
                 .\Funcionalidades\DHCP\menuDHCP.ps1
                 Read-Host -Prompt "Presiona Enter para continuar..."
             }
             "3" {
-                Write-Output "Seleccionaste: Creación de Usuarios para el Dominio: horchata.sv"
+                Write-Output "Seleccionaste: Modulo de DNS"
                 .\Funcionalidades\DNS\menuDNS.ps1
                 Read-Host -Prompt "Presiona Enter para continuar..."
             }
             "4"{
-                Write-Output "Seleccionaste: Instalacion de Rol DHCP"
-                .\Funcionalidades\4_InstalacionDeDHCP.ps1
+                Write-Output "Seleccionaste: Modulo de IIS"
+                .\Funcionalidades\IIS\menuIIS.ps1
+                Read-Host -Prompt "Presiona Enter para continuar..."
+            }
+            "5"{
+                Write-Output "Seleccionaste: Demostraciones De Catedra"
+                .\Funcionalidades\DemostracionesCatedra\ImplementacionDeCsharp.ps1
                 Read-Host -Prompt "Presiona Enter para continuar..."
             }
             "0" {

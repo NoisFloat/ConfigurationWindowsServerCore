@@ -27,17 +27,17 @@ function menuDNS {
         switch ($menu) {
             "1" {
                 Write-Output "Seleccionaste: Instalación de IIS"
-                .\Funcionalidades\DNS\1_InstalacionDeDNS.ps1
+                .\Funcionalidades\IIS\instalarISS.ps1
                 Read-Host -Prompt "Presiona Enter para continuar..."
             }
             "2" {
                 Write-Output "Seleccionaste: Descarga de pagina web"
-                .\Funcionalidades\DNS\2_CreacionDePunterosIPV4.ps1
+                .\Funcionalidades\IIS\descargaWeb.ps1
                 Read-Host -Prompt "Presiona Enter para continuar..."
             }
             "3" {
                 Write-Output "Seleccionaste: Certificar (HTTPS) "
-                .\Funcionalidades\DNS\2_CreacionDePunterosIPV4.ps1
+                .\Funcionalidades\IIS\menuIIS.ps1
                 Read-Host -Prompt "Presiona Enter para continuar..."
             }
             

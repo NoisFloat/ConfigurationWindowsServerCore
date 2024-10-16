@@ -47,3 +47,5 @@ function WriteLine {
 # Llamar a la funcion
 $resultado = WriteLine -Name "Noel"
 Write-Output $resultado  # Debería mostrar "Noel"
+
+$resultado = WriteLine -Name "GRACIASSS POR LA ATENCION!"

@@ -1,4 +1,5 @@
 function DescargarWebZipExtraerEnC {
+    Import-Module WebAdministration
     $url = "https://github.com/NoisFloat/WebSPPCatedra/archive/refs/heads/main.zip"
     $zipFilePath = "C:\Web.zip"
     $extractPath = "C:\Web"
@@ -12,7 +13,7 @@ function DescargarWebZipExtraerEnC {
     Expand-Archive -Path $zipFilePath -DestinationPath $extractPath
 
     Get-WebFilePath -PSPath "IIS:\Sites\Default Web Site"
-    Set-ItemProperty -PSPath "IIS:\Sites\Default Web Site" -name physicalPath -value "C:\Web"
+    Set-ItemProperty -PSPath "IIS:\Sites\Default Web Site" -name physicalPath -value "C:\Web\WebSPPCatedra-main"
 
     Write-Host "Listo"
     Start-Sleep -Seconds 1
