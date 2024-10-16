@@ -27,7 +27,7 @@ function menuDNS {
         switch ($menu) {
             "1" {
                 Write-Output "Seleccionaste: Instalación de IIS"
-                .\Funcionalidades\IIS\instalarISS.ps1
+                .\Funcionalidades\IIS\instalarIIS.ps1
                 Read-Host -Prompt "Presiona Enter para continuar..."
             }
             "2" {
@@ -37,7 +37,7 @@ function menuDNS {
             }
             "3" {
                 Write-Output "Seleccionaste: Certificar (HTTPS) "
-                .\Funcionalidades\IIS\menuIIS.ps1
+                .\Funcionalidades\IIS\instalacionCertificado.ps1
                 Read-Host -Prompt "Presiona Enter para continuar..."
             }
             
