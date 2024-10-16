@@ -22,4 +22,4 @@ function Install_IIS_Server {
         return
     }
 }
-Install_DNSServer
+Install_IIS_Server
