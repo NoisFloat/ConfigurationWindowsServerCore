@@ -11,9 +11,8 @@ function InstalarCertificadoIIS {
 
     $cert = Get-ChildItem -Path Cert:\LocalMachine\My | Where-Object {$_.Subject -like "*www.horchata.sv*"}
 
-    New-WebBinding -Name "www.horchata.sv" -Protocol "https" -Port 443 -IPAddress * -SslFlags 1 -HostHeader "www.horchata.sv"
-
-    (Get-WebBinding -Name "www.horchata.sv" -Protocol "https").AddSslCertificate($cert.Thumbprint, "My")
+    New-WebBinding -Name "Default Web Site" -protocol https -port 443
+    (Get-WebBinding -Name "Default Web Site" -Protocol "https").AddSslCertificate($cert.Thumbprint, "My")
     
     Write-Host "Certificado SSL para www.horchata.sv instalado y configurado en IIS."
     Start-Sleep -Seconds 1
