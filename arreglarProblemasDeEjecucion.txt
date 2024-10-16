@@ -13,3 +13,13 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
  actual sin cambiar la política de ejecución a nivel del
   sistema. Este cambio es temporal y se restablecerá cuando
    cierres la sesión de PowerShell.*/
+
+
+Get-NetAdapter
+
+# Supón que el índice de la interfaz es 12
+$interfaceIndex = 12
+$ipv6Address = "2001:DB8:DEA:B::2"
+$prefixLength = 64
+
+New-NetIPAddress -InterfaceIndex $interfaceIndex -IPAddress $ipv6Address -PrefixLength $prefixLength -AddressFamily IPv6
