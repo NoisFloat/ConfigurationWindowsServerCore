@@ -7,7 +7,7 @@ function Install_IIS_Server {
     Clear-Host
     # Verificar la instalación de DNS Server
     if (-not (Test_IsInstalledIIS_Server)) {
-        Install-WindowsFeature -Name Web-Server -IncludeManagementTools -IncludeAllSubFeature -Confirm:$false
+        Install-WindowsFeature -Name Web-Server -IncludeManagementTools -IncludeAllSubFeature -Confirm:$true
         Install-WindowsFeature Web-Mgmt-Service -IncludeManagementTools 
 
         Install-WindowsFeature Web-Mgmt-Service -IncludeManagementTools 
