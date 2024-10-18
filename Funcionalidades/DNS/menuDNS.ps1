@@ -16,7 +16,7 @@ function menuDNS {
         Write-Host '*      [1] Instalación de DNS                             *'
         Write-Host '*      [2] Creacion de punteros IPV4(Incluye Inverso)     *'
         Write-Host '*      [3] Creacion de punteros IPV6(Incluye Inverso)     *'
-        Write-Host '*      [3] Asignacion de Forwarders (IPV4 - IPV6)         *'                         
+        Write-Host '*      [4] Asignacion de Forwarders (IPV4 - IPV6)         *'                         
         Write-Host '*                                                         *'
         Write-Host '*      [0] Ir al menu Principal                           *'
         Write-Host '************************************************************'
