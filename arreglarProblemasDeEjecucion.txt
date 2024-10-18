@@ -1,25 +1,26 @@
+
 1. Permitir la ejecución de scripts en la sesión actual 
 de PowerShell
 
-Para permitir la ejecución de scripts solo en la sesión 
-actual de PowerShell, puedes establecer la política de 
-ejecución a nivel de la sesión (Process) con el siguiente 
-comando:
+Para habilitar la ejecución de scripts solo en la sesión actual de PowerShell, puedes establecer la política de ejecución a nivel de sesión (Process) utilizando el siguiente comando:
 
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+     -Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 
 
-/*Esto permite la ejecución de scripts firmados en la sesión
- actual sin cambiar la política de ejecución a nivel del
-  sistema. Este cambio es temporal y se restablecerá cuando
-   cierres la sesión de PowerShell.*/
+Esto permite la ejecución de scripts firmados durante la sesión actual sin modificar la política de ejecución a nivel del sistema. Este cambio es temporal y se revertirá al cerrar la sesión de PowerShell.
+
+2- Configuracion de IPV4
+Puedes hacerla con el sconfig.vba (Menu Switch por defecto de Windows Server Core)
 
 
-Get-NetAdapter
+3- Configuracion de IPV6
 
-# Supón que el índice de la interfaz es 12
-$interfaceIndex = 12
-$ipv6Address = "2001:DB8:DEA:B::2"
-$prefixLength = 64
+#Consulta el Indice con 
+    -Get-NetAdapter (El indice que te retorne lo pondras en la variable $interfaceIndex)
 
-New-NetIPAddress -InterfaceIndex $interfaceIndex -IPAddress $ipv6Address -PrefixLength $prefixLength -AddressFamily IPv6
+Supón que el índice de la interfaz es 12
+    $interfaceIndex = 12
+    $ipv6Address = "2001:DB8:DEA:B::2"
+    $prefixLength = 64
+    
+    New-NetIPAddress -InterfaceIndex $interfaceIndex -IPAddress $ipv6Address -PrefixLength $prefixLength -AddressFamily       IPv6
