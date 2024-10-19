@@ -20,6 +20,7 @@ Este repositorio contiene scripts de PowerShell diseñados para configurar un en
 ## Requisitos Previos
 
 - **Sistema Operativo**: Este conjunto de scripts ha sido probado únicamente en Windows Server 2022 y 2019.
+- **Conectado a Default Switch**: En casos de Hyper-V.
 - **Configuración de Red**:
   - **NetBIOS**: Debe ser `HORCHATA`.
   - **Forest de AD-DS**: Debe ser `horchata.sv`.
